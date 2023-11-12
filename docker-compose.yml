@@ -24,15 +24,8 @@ services:
         max-size: '1g'
         max-file: '10'
     volumes:
-      - ./data/uploads:/home/app/homeland/public/uploads
-      - ./shared/cache/uploads-thumb:/home/app/cache/uploads-thumb
-      - ./shared/plugins:/home/app/homeland/plugins
-      - ./log:/home/app/log
-      - ./tmp/pids:/home/app/pids
-      - ./log:/home/app/homeland/log
-      - ./tmp:/home/app/homeland/tmp
-      - ./etc/nginx/conf.d:/etc/nginx/conf.d
-    command: /rails/bin/docker-entrypoint
+      - ./log:/rails/log
+      - ./tmp:/rails/tmp
     ports:
       - '7000'
 
