@@ -3,7 +3,7 @@ version: '3'
 services:
   postgresql:
     container_name: 'oauth2id_postgresql'
-    image: postgres:9.5-alpine
+    image: postgres:14.9-alpine
     ports:
       - '5432'
     environment:
@@ -13,7 +13,7 @@ services:
 
   app: &app_base
     container_name: 'oauth2id_app'
-    image: ericguo/oauth2id:${IMAGE_VERSION:-3-8-latest}
+    image: ericguo/oauth2id:${IMAGE_VERSION:-main}
     env_file:
       - app.secret.env
       - app.local.env
@@ -32,7 +32,7 @@ services:
       - ./log:/home/app/homeland/log
       - ./tmp:/home/app/homeland/tmp
       - ./etc/nginx/conf.d:/etc/nginx/conf.d
-    command: /home/app/homeland/bin/docker-start
+    command: /rails/bin/docker-entrypoint
     ports:
       - '7000'
 

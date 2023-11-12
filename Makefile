@@ -20,7 +20,7 @@ update:
 	@make secret
 	@touch app.local.env
 	@make restart
-	@docker tag ericguo/oauth2id:latest ericguo/oauth2id:$$(date "+%Y%m%d%H%M%S")
+	@docker tag ericguo/oauth2id:main ericguo/oauth2id:$$(date "+%Y%m%d%H%M%S")
 restart:
 	@sh ./scripts/restart-app
 	@docker-compose stop web
