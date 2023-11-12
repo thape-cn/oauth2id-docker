@@ -36,23 +36,6 @@ services:
     ports:
       - '7000'
 
-  app_backup:
-    <<: *app_base
-    container_name: 'oauth2id_app_backup'
-    command: bundle exec puma -C config/puma-backup.rb
-    ports:
-      - '7001'
-
-  web:
-    <<: *app_base
-    container_name: 'oauth2id_web'
-    links:
-      - app
-      - app_backup
-    command: /etc/nginx/start
-    ports:
-      - '8080:80'
-
   caddy:
     image: caddy:2-alpine
     container_name: 'oauth2id_caddy'
@@ -66,5 +49,5 @@ services:
       - ./etc/caddy/Caddyfile:/etc/caddy/Caddyfile
       - ./shared/caddy/data:/data
     links:
-      - web
+      - app
     command: caddy run --config /etc/caddy/Caddyfile

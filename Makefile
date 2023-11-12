@@ -23,15 +23,12 @@ update:
 	@docker tag ericguo/oauth2id:main ericguo/oauth2id:$$(date "+%Y%m%d%H%M%S")
 restart:
 	@sh ./scripts/restart-app
-	@docker-compose stop web
-	@docker-compose up -d web
-	@docker-compose stop app_backup
 start:
 	@docker-compose up -d
 status:
 	@docker-compose ps
 stop:
-	@docker-compose stop caddy web app app_backup
+	@docker-compose stop caddy app
 stop-all:
 	@docker-compose down
 rollback:

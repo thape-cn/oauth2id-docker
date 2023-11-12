@@ -1,5 +1,5 @@
 {$domain}
 
 reverse_proxy {
-  to web:80
+  to app:80
 }

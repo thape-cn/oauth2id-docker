@@ -16,7 +16,6 @@ fi
 echo "Rollbacking..."
 echo "version: $IMAGE_VERSION"
 ./scripts/restart-app
-./scripts/restart-nginx
 echo "Rollback successed."
 echo ""
 docker ps | grep oauth2id
