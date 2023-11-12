@@ -1,6 +1,6 @@
-## Homeland Docker
+## Oauth2id Docker
 
-[Homeland](https://homeland.ruby-china.org/) 基于 Docker 的自动化部署方案。
+[Oauth2id](https://sso-id.com) 基于 Docker 的自动化部署方案。
 
 ## 系统需求
 
@@ -14,9 +14,6 @@ https://homeland.ruby-china.org/install/
 
 ## Versions
 
-分支对应 Homeland 版本
+分支对应 Oauth2id 版本
 
-- master - hoemland/homeland:3-8-latest
-- 3-8-stable - hoemland/homeland:3-8-latest
-- 3-7-stable - hoemland/homeland:3-7-latest
-- 3-3-stable - hoemland/homeland:3-3-latest
+- SQLite 3 后端 - ericguo/oauth2id:main

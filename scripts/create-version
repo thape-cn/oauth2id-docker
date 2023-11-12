@@ -1,8 +1,8 @@
 #!/bin/bash
 if [ -z ${IMAGE_VERSION+x} ];then
-  IMAGE_VERSION=latest
+  IMAGE_VERSION=main
 fi
-image_name="homeland/homeland"
+image_name="ericguo/oauth2id"
 version=$(date "+%Y%m%d%H%M%S")
 current_version=$IMAGE_VERSION
 echo "Tag: $current_version -> $version"

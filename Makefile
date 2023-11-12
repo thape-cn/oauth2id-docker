@@ -20,7 +20,7 @@ update:
 	@make secret
 	@touch app.local.env
 	@make restart
-	@docker tag homeland/homeland:latest homeland/homeland:$$(date "+%Y%m%d%H%M%S")
+	@docker tag ericguo/oauth2id:latest ericguo/oauth2id:$$(date "+%Y%m%d%H%M%S")
 restart:
 	@sh ./scripts/restart-app
 	@docker-compose stop web
@@ -31,7 +31,7 @@ start:
 status:
 	@docker-compose ps
 stop:
-	@docker-compose stop caddy web app app_backup worker
+	@docker-compose stop caddy web app app_backup
 stop-all:
 	@docker-compose down
 rollback:
@@ -49,4 +49,4 @@ clean:
 	@docker ps -aqf status=exited | xargs docker rm && docker images -qf dangling=true | xargs docker rmi
 backup:
 	@echo "Backing up database..."
-	@$(RUN_DB) pg_dump -d homeland -h postgresql -U postgres > postgres.sql
+	@$(RUN_DB) pg_dump -d oauth2id_prod -h postgresql -U postgres > postgres.sql
